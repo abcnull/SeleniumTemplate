@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--<suite name="优衣库webUI自动化测试用例集_UAT环境-&#45;&#45;" parallel="tests"  thread-count="4" verbose="1" >-->
+<suite name="My suite" parallel="tests" thread-count="4">
+
+    <!--
+        tests级别：不同的test标签(tag)下的用例可以在不同的线程下执行
+                相同的test标签(tag)下的用例只能在同一个线程中去执行
+        methods级别：所有用例都可以在不同的线程下去执行，但是要保证是同一个类
+        classes级别：相同的classes标签下的用例在同一个线程中执行
+                不同的classes标签下的用例可以在不同的线程下执行
+        thread-count: 代表了最大并发线程数
+                xml文件配置这种方式不能指定线程池，只有方法上才可以指定线程池
+     -->
+
+    <!--listener 不使用默认产生报告的监听器配置，自己写明一个产生报告的监听器-->
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+    </listeners>
+
+    <!--listener 监听带有重写截图方法的类-->
+    <listeners>
+        <listener class-name="com.example.base.SimpleInitiator" />
+    </listeners>
+
+    <!-- 每个 case 一个 test 标签 -->
+    <!--<test name="UniqloUnsendRefund" preserve-order="true">-->
+    <test verbose="2" name="MyTest">
+        <parameter name="propertiesPath" value="src/main/resources/config.properties" />
+        <parameter name="browserType" value="chrome" />
+        <parameter name="browserVersion" value="58.0.3029.81" />
+        <!-- 运行相应的分组（注解后面标有分组） -->
+        <!--<groups>-->
+            <!--<run>-->
+                <!--<include name="group1" />-->
+                <!--<exclude name="group2" />-->
+            <!--</run>-->
+        <!--</groups>-->
+        <!-- 指定 case 路径 -->
+        <!--<parameter name="remoteIP" value="172.31.14.8" />-->
+        <classes>
+            <class name="com.example.mytest.MyTest" />
+        </classes>
+    </test> <!-- My test -->
+
+    <test verbose="2" name="MyTest2">
+        <parameter name="propertiesPath" value="src/main/resources/config.properties" />
+        <parameter name="browserType" value="chrome" />
+        <parameter name="browserVersion" value="58.0.3029.81" />
+        <!-- 指定 case 路径 -->
+        <!--<parameter name="remoteIP" value="172.31.14.8" />-->
+        <classes>
+            <class name="com.example.mytest.MyTest2" />
+        </classes>
+    </test> <!-- My test -->
+
+    <!--<test verbose="2" name="MyTest3">-->
+        <!--<parameter name="propertiesPath" value="src/main/resources/config.properties" />-->
+        <!--<parameter name="browserType" value="chrome" />-->
+        <!--<parameter name="browserVersion" value="58.0.3029.81" />-->
+        <!--&lt;!&ndash; 指定 case 路径 &ndash;&gt;-->
+        <!--&lt;!&ndash;<parameter name="remoteIP" value="172.31.14.8" />&ndash;&gt;-->
+        <!--<classes>-->
+            <!--<class name="com.example.mytest.MyTest3" />-->
+        <!--</classes>-->
+    <!--</test> &lt;!&ndash; My test &ndash;&gt;-->
+
+    <!--<test verbose="2" name="MyTest4">-->
+        <!--<parameter name="propertiesPath" value="src/main/resources/config.properties" />-->
+        <!--<parameter name="browserType" value="chrome" />-->
+        <!--<parameter name="browserVersion" value="58.0.3029.81" />-->
+        <!--&lt;!&ndash; 指定 case 路径 &ndash;&gt;-->
+        <!--&lt;!&ndash;<parameter name="remoteIP" value="172.31.14.8" />&ndash;&gt;-->
+        <!--<classes>-->
+            <!--<class name="com.example.mytest.MyTest4" />-->
+        <!--</classes>-->
+    <!--</test> &lt;!&ndash; My test &ndash;&gt;-->
+
+</suite> <!-- My suite -->

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>selenium-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <xmlFileName>src/main/resources/testNg.xml</xmlFileName>
+    </properties>
+
+    <dependencies>
+
+        <!-- 目前其他 selenium 包中 21.0 版本，但是发现前面有包是 19.0，所以目前 21.0 覆盖一下 -->
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>21.0</version>
+        </dependency>
+
+        <!-- 其他依赖包 -->
+        <!-- Junit 依赖包 -->
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- testng依赖包 -->
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.11</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- reportng 依赖包 -->
+        <!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- guice 依赖包，一个 ioc 容器，防止出现 Injector NoClassDefFoundError 错误 -->
+        <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+
+        <!-- selenium 框架包 -->
+        <!-- selenium-java 自动化 -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
+        <!-- selenium-support ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-support</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- selenium-api ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-api -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-api</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- selenium-remote-driver ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-remote-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- 谷歌驱动依赖包 ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-chrome-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- 火狐驱动依赖 ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-firefox-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- IE 驱动依赖包 ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-ie-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-ie-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- Safari 驱动依赖包 ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-safari-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- Edge 驱动依赖包 ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-edge-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- Opera 驱动依赖包 ⊆ selenium-java -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-opera-driver -->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-opera-driver</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
+
+        <!-- selenium-server 自动化 -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
+        <!-- selenium-htmlunit-driver 自动化（目前暂不知作用，注释掉似乎也不影响） -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-htmlunit-driver</artifactId>
+            <version>2.52.0</version>
+        </dependency>
+
+        <!-- 设备驱动依赖包 -->
+        <!-- Iphone 设备驱动依赖包 -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-iphone-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-iphone-driver</artifactId>
+            <version>2.39.0</version>
+        </dependency>
+        <!-- Android 设备驱动依赖包 -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-android-driver -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-android-driver</artifactId>
+            <version>2.39.0</version>
+        </dependency>
+
+        <!-- slf4j 相关包 -->
+        <!-- slf4j-api 依赖包，用来在代码中调用类写日志 -->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <!-- slf4j-log4j12 依赖包，用来输出 logs 报告 -->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+        <pluginManagement>
+            <plugins>
+                <!-- 基础 maven 插件 -->
+                <!-- maven-clean-plugin -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <!-- maven-resources-plugin -->
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <!-- maven-compiler-plugin -->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <!-- 这里1.8作用？？？ -->
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+
+                <!-- 添加插件,添加ReportNg的监听器，修改最后的TestNg的报告 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                    <!-- 配置testNg.xml 控制测试范围和特性与产出报告 -->
+                    <configuration>
+                        <!-- testNg 执行出错仍然继续执行 -->
+                        <testFailureIgnore>true</testFailureIgnore>
+                        <!-- testNg 相关的 xml 配置文件 -->
+                        <suiteXmlFiles>
+                            <!-- 指定使用的 testNg.xml 位置 -->
+                            <suiteXmlFile>${xmlFileName}</suiteXmlFile>
+                        </suiteXmlFiles>
+                        <!-- 添加 reportNg 监听器，来修改 testNg 的报告 -->
+                        <properties>
+                            <!-- 线程池多线程，在xml中配置 -->
+                            <property>
+                                <name>suitethreadpoolsize</name>
+                                <value>2</value>
+                            </property>
+                            <!-- 是否使用默认监听器，在testNg.xml中配置 -->
+                            <property>
+                                <name>usedefaultlisteners</name>
+                                <value>false</value> <!-- 由于要使用reportNg生成的报告，置为false，此时要在 testNg.xml 配置监听器 -->
+                            </property>
+                            <!-- listener -->
+                            <property>
+                                <name>listener</name>
+                                <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                            </property>
+                        </properties>
+                        <!--<forkMode>always</forkMode>-->
+                        <!-- 测试报告产出路径（实际发现没有用？？？） -->
+                        <!--<workingDirectory>report/</workingDirectory>-->
+                        <!-- 编码设置，否则生成报告乱码 -->
+                        <argLine>-Dfile.encoding=UTF-8</argLine>
+                    </configuration>
+                </plugin>
+
+                <!-- 作用？？？ -->
+                <!-- maven-shade-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <createDependencyReducedPom>false</createDependencyReducedPom>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <transformers>
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        <manifestEntries>
+                                            <Main-Class>util.Process</Main-Class>
+                                        </manifestEntries>
+                                    </transformer>
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                        <resource>META-INF/cxf/bus-extensions.txt</resource>
+                                    </transformer>
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                        <resource>META-INF/spring.handlers</resource>
+                                    </transformer>
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                        <resource>META-INF/spring.tooling</resource>
+                                    </transformer>
+                                    <transformer
+                                            implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                        <resource>META-INF/spring.schemas</resource>
+                                    </transformer>
+                                </transformers>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- maven-jar-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <archive>
+                            <manifestEntries>
+                                <Class-Path>conf/</Class-Path>
+                            </manifestEntries>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
